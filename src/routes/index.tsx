@@ -265,10 +265,10 @@ function Contact() {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
     const err: Record<string, string> = {};
-    if (!String(f.get("name")).trim()) err.name = "Please enter your full name.";
-    if (!/^\S+@\S+\.\S+$/.test(String(f.get("email")))) err.email = "Please enter a valid email address.";
-    if (!f.get("service")) err.service = "Please choose a service.";
-    if (String(f.get("message")).trim().length < 10) err.message = "Tell us a little more about your project.";
+    if (!String(f.get("name")).trim()) err["name"] = "Please enter your full name.";
+    if (!/^\S+@\S+\.\S+$/.test(String(f.get("email")))) err["email"] = "Please enter a valid email address.";
+    if (!f.get("service")) err["service"] = "Please choose a service.";
+    if (String(f.get("message")).trim().length < 10) err["message"] = "Tell us a little more about your project.";
     setErrors(err);
     setDone(Object.keys(err).length === 0);
   };
